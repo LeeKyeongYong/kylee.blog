@@ -5,17 +5,18 @@
   <title>jqGrid Dynamic Row Adding Example</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqgrid/5.5.5/css/ui.jqgrid.min.css" />
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqgrid/5.5.5/js/jquery.jqGrid.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/free-jqgrid@4.15.5/dist/i18n/grid.locale-en.js"></script>
-
+  
   <link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
   <link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.4/css/ui.jqgrid.min.css">
 
-  <script>
-    $(function() {
-      $.jgrid.formatter.number.decimalSeparator = ".";
-      $.jgrid.formatter.number.thousandsSeparator = ",";
+  <script src="https://cdn.jsdelivr.net/npm/free-jqgrid@4.15.5/dist/i18n/grid.locale-en.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqgrid/5.5.5/js/jquery.jqGrid.min.js"></script>
 
+  <script>
+    $.jgrid.formatter.number.decimalSeparator = ".";
+    $.jgrid.formatter.number.thousandsSeparator = ",";
+
+    $(function() {
       var mydata = [
         {id:1, name:'John', age:35},
         {id:2, name:'Jane', age:28},
