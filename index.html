@@ -8,20 +8,22 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqgrid/5.5.5/js/jquery.jqGrid.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/free-jqgrid@4.15.5/dist/i18n/grid.locale-en.js"></script>
 
-  <link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
-  <link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.4/css/ui.jqgrid.min.css">
-
+  
+  
+ <link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.4/css/ui.jqgrid.min.css">
+   
   <script>
-    $(function() {
-      $.jgrid.defaults = $.extend($.jgrid.defaults, {
-        formatter: {
-          number: {
-            decimalSeparator: ".",
-            thousandsSeparator: ","
-          }
+    $.extend($.jgrid.defaults, {
+      formatter: {
+        number: {
+          decimalSeparator: ".",
+          thousandsSeparator: ","
         }
-      });
+      }
+    });
 
+    $(function() {
       var mydata = [
         {id:1, name:'John', age:35},
         {id:2, name:'Jane', age:28},
