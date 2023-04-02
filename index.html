@@ -1,10 +1,52 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>제목을 입력하세요</title>
-  </head>
-  <body>
-    <h1>안녕하세요!</h1>
-    <p>이것은 HTML 파일입니다.</p>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <title>jqGrid Dynamic Row Adding Example</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqgrid/4.7.2/css/ui.jqgrid.min.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqgrid/4.7.2/js/jquery.jqGrid.min.js"></script>
+  <script>
+    $(function() {
+      var mydata = [
+        {id:1, name:'John', age:35},
+        {id:2, name:'Jane', age:28},
+        {id:3, name:'Bob', age:45},
+        {id:4, name:'Kate', age:31},
+        {id:5, name:'Mike', age:52}
+      ];
+      
+      // jqGrid 생성
+      $("#myGrid").jqGrid({
+        data: mydata,
+        datatype: "local",
+        colNames: ['ID', 'Name', 'Age'],
+        colModel: [
+          {name:'id', index:'id', width:60, sorttype:"int"},
+          {name:'name', index:'name', width:100},
+          {name:'age', index:'age', width:60, sorttype:"int"}
+        ],
+        pager: '#myPager',
+        rowNum: 10,
+        rowList: [10, 20, 30],
+        sortname: 'id',
+        sortorder: 'asc',
+        viewrecords: true,
+        caption: 'My Grid'
+      });
+      
+      // 버튼 클릭 시 행 추가
+      $("#addRowBtn").click(function() {
+        var newdata = {id:6, name:'Sarah', age:27};
+        $("#myGrid").jqGrid('addRowData', newdata.id, newdata);
+      });
+    });
+  </script>
+</head>
+<body>
+  <h1>jqGrid Dynamic Row Adding Example</h1>
+  <table id="myGrid"></table>
+  <div id="myPager"></div>
+  <button id="addRowBtn">Add Row</button>
+</body>
 </html>
