@@ -16,21 +16,6 @@
               { id: 3, name: "이영희", age: "40", email: "lee@example.com", image: null }
             ];
           
-            for (var i = 0; i < mydata.length; i++) {
-              if (mydata[i].image) {
-                mydata[i].image = mydata[i].image + '.jpg';
-              }
-              $("#myTable").jqGrid('addRowData', i + 1, mydata[i]);
-            }
-          
-            function imageFormatter(cellvalue, options, rowObject) {
-              if (cellvalue) {
-                return '<img src="' + cellvalue + '.jpg">';
-              } else {
-                return '<img src="no-image.jpg">';
-              }
-            }
-          
             $("#myTable").jqGrid({
                 data: mydata,
                 datatype: "local",
@@ -46,6 +31,21 @@
                 rowNum: 10,
                 pager: "#myPager"
             });
+          
+            for (var i = 0; i < mydata.length; i++) {
+              if (mydata[i].image) {
+                mydata[i].image = mydata[i].image + '.jpg';
+              }
+              $("#myTable").jqGrid('addRowData', i + 1, mydata[i]);
+            }
+          
+            function imageFormatter(cellvalue, options, rowObject) {
+              if (cellvalue) {
+                return '<img src="' + cellvalue + '.jpg">';
+              } else {
+                return '<img src="no-image.jpg">';
+              }
+            }
         });
     </script>
 </head>
