@@ -14,6 +14,11 @@
     <link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.4/css/ui.jqgrid.min.css">
    
   <script>
+
+    $.jgrid.formatter.number.decimalSeparator = ".";
+$.jgrid.formatter.number.thousandsSeparator = ",";
+
+
     $(function() {
       var mydata = [
         {id:1, name:'John', age:35},
