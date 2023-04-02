@@ -1,11 +1,56 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>서브페이지</title>
-  </head>
-  <body>
-    <h1>안녕하세요 여기는 서브페이지입니다.</h1>
-    <p>이것은 HTML 파일입니다. 서브페이지 될려나</p>
-    <p>늦게 적용되네...ㅠㅠ</p>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <title>jqGrid 이미지 보여주기 예제</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.4/css/ui.jqgrid.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.4/jquery.jqgrid.min.js"></script>
+    <script>
+        $(function () {
+            var mydata = [
+              { id: 1, name: "홍길동", age: "30", email: "hong@example.com", image: "image1" },
+              { id: 2, name: "김철수", age: "25", email: "kim@example.com", image: "image2" },
+              { id: 3, name: "이영희", age: "40", email: "lee@example.com", image: null }
+            ];
+          
+            for (var i = 0; i < mydata.length; i++) {
+              if (mydata[i].image) {
+                mydata[i].image = mydata[i].image + '.jpg';
+              }
+              $("#myTable").jqGrid('addRowData', i + 1, mydata[i]);
+            }
+          
+            function imageFormatter(cellvalue, options, rowObject) {
+              if (cellvalue) {
+                return '<img src="' + cellvalue + '.jpg">';
+              } else {
+                return '<img src="no-image.jpg">';
+              }
+            }
+          
+            $("#myTable").jqGrid({
+                data: mydata,
+                datatype: "local",
+                colModel: [
+                    { label: 'ID', name: 'id', width: 50 },
+                    { label: '이름', name: 'name', width: 150 },
+                    { label: '나이', name: 'age', width: 150 },
+                    { label: '이메일', name: 'email', width: 150 },
+                    { label: '이미지', name: 'image', width: 150, formatter: imageFormatter }
+                ],
+                autowidth: true,
+                height: "auto",
+                rowNum: 10,
+                pager: "#myPager"
+            });
+        });
+    </script>
+</head>
+<body>
+    <table id="myTable"></table>
+    <div id="myPager"></div>
+</body>
 </html>
