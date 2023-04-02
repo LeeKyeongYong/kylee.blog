@@ -11,8 +11,9 @@
     <script>
         $(function () {
             var mydata = [
-              { id: 1, name: "홍길동", age: "30", email: "hong@example.com", image: "image1" },
-              { id: 2, name: "김철수", age: "25", email: "kim@example.com", image: "image2" },
+              //{ id: 1, name: "홍길동", age: "30", email: "hong@example.com", image: "image1" },
+              { id: 1, name: "홍길동", age: "30", email: "hong@example.com", image: null },
+              { id: 2, name: "김철수", age: "25", email: "kim@example.com", image: null },
               { id: 3, name: "이영희", age: "40", email: "lee@example.com", image: null }
             ];
           
@@ -43,7 +44,8 @@
               if (cellvalue) {
                 return '<img src="' + cellvalue + '.jpg">';
               } else {
-                return '<img src="no-image.jpg">';
+               // return '<img src="no-image.jpg">';
+                  return '<img src="https://www.google.co.kr/url?sa=i&url=http%3A%2F%2Fwww.mediadale.com%2Fnews%2FarticleView.html%3Fidxno%3D240&psig=AOvVaw0PKuOHdABVTtQfbrImY89C&ust=1680509128094000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCOC65b7eiv4CFQAAAAAdAAAAABAU">';
               }
             }
         });
