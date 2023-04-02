@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <title>jqGrid Dynamic Row Adding Example</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqgrid/5.5.5/css/ui.jqgrid.min.css" />
+  
+  <!-- jQuery 라이브러리를 먼저 로드합니다 -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   
+  <!-- jqGrid 라이브러리를 로드합니다 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqgrid/5.5.5/js/jquery.jqGrid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/free-jqgrid@4.15.5/dist/i18n/grid.locale-en.js"></script>
+
   <link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
   <link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.4/css/ui.jqgrid.min.css">
-
-  <script src="https://cdn.jsdelivr.net/npm/free-jqgrid@4.15.5/dist/i18n/grid.locale-en.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqgrid/5.5.5/js/jquery.jqGrid.min.js"></script>
-
+   
   <script>
-    $.jgrid.formatter.number.decimalSeparator = ".";
-    $.jgrid.formatter.number.thousandsSeparator = ",";
-
     $(function() {
       var mydata = [
         {id:1, name:'John', age:35},
@@ -24,7 +24,7 @@
         {id:4, name:'Kate', age:31},
         {id:5, name:'Mike', age:52}
       ];
-      
+
       // jqGrid 생성
       $("#myGrid").jqGrid({
         data: mydata,
@@ -43,12 +43,16 @@
         viewrecords: true,
         caption: 'My Grid'
       });
-      
+
       // 버튼 클릭 시 행 추가
       $("#addRowBtn").click(function() {
         var newdata = {id:6, name:'Sarah', age:27};
         $("#myGrid").jqGrid('addRowData', newdata.id, newdata);
       });
+
+      // 숫자 포맷 설정
+      $.jgrid.formatter.number.decimalSeparator = ".";
+      $.jgrid.formatter.number.thousandsSeparator = ",";
     });
   </script>
 </head>
